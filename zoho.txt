@@ -1,40 +1,30 @@
 import java.util.Scanner;
-
-public class Zoho {
-
+public class ZohoFinal {
     public static void main(String[] args) {
-
         Scanner scan =new Scanner(System.in);
-        String input = scan.next();
-        int len =input.length();
+        String str =scan.nextLine();
+        char arr[] =str.toCharArray();
+        int ro = str.length()/2;
+        for(int i = 0; i < ro+1; i++){
+            int j;
+            char last;
+            last = arr[arr.length-1];
+            for(j = arr.length-1; j > 0; j--){
+                arr[j] = arr[j-1];
+            }
+            arr[0] = last;
+        }
         int j;
-        int k=0;
-        boolean exe =false;
-        int counter=1;
-        int mid =input.length()/2;
-        for(int i=0;i<input.length();i++){
+        int len =str.length();
+        for(int i=0;i<str.length();i++){
             for(j=i;j<=len-1;j++){
                 System.out.print(" ");
             }
-            int temp=mid+counter;
-            for (j=mid;j<temp;j++){
-
-                if(j<len) {
-                    System.out.print(input.charAt(j));
-                }
-                if(j==len){
-                j=0;
-                temp=mid;
-                exe =true;
-                    System.out.print(input.charAt(j));
-
-                }
+            for (j=0;j<i+1;j++){
+                    System.out.print(arr[j]);
             }
-
             System.out.println();
-            counter++;
-
         }
-    }
 
+    }
 }
